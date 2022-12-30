@@ -3,9 +3,10 @@ Application file
 """
 
 import tkinter as tk
+
+from controller import Controller
 from model import Model
 from view import View
-from controller import Controller
 
 
 class App(tk.Tk):
@@ -16,7 +17,7 @@ class App(tk.Tk):
         tk (Tk): TKinter
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         """
         __init__ Initializer
         """
@@ -25,16 +26,16 @@ class App(tk.Tk):
         self.title("Tkinter MVC Demo")
 
         # create a model
-        model = Model("hello@pythontutorial.net")
+        model: Model = Model("hello@pythontutorial.net")
 
         # create a view and place it on the root window
-        view = View(self)
+        view: View = View(self)
 
         # create a controller
-        controller = Controller(model, view)
+        controller: Controller = Controller(model, view)
         controller.setup_event_handlers()
 
 
 if __name__ == "__main__":
-    app = App()
+    app: App = App()
     app.mainloop()

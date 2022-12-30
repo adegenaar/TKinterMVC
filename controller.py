@@ -1,9 +1,9 @@
 """
 Controller for the Tkinter app
 """
+from lib.event import subscribe
 from model import Model
 from view import View
-from lib.event import subscribe
 
 
 class Controller:
@@ -11,7 +11,7 @@ class Controller:
     Controller
     """
 
-    def __init__(self, model: Model, view: View):
+    def __init__(self, model: Model, view: View) -> None:
         """
         __init__ Initializer
 
@@ -19,10 +19,10 @@ class Controller:
             model (Model): Model for use with the controllers
             view (View): View for use with the controller
         """
-        self.model = model
-        self.view = view
+        self.model: Model = model
+        self.view: View = view
 
-    def save(self, email: str):
+    def save(self, email: str) -> None:
         """
         save Save the email
 
@@ -42,7 +42,7 @@ class Controller:
             # show an error message
             self.view.show_error(error)
 
-    def setup_event_handlers(self):
+    def setup_event_handlers(self) -> None:
         """
         setup_event_handlers Register the event handlers
         """
